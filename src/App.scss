@@ -1,0 +1,28 @@
+@use "variables.module";
+
+.app {
+  background-color: variables.$background-colour;
+  display: flex;
+  height: 100%;
+  font-family: "Whitney", "Courier New", Courier, monospace;
+}
+
+input[type="text"] {
+  background-color: #202226;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+p {
+  font-size: large;
+}
+
+h3 {
+  font-size: small;
+}

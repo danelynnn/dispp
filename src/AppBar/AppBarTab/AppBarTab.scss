@@ -1,0 +1,32 @@
+@use "variables.module";
+
+.tab {
+  display: flex;
+
+  &::before {
+    content: "";
+    background-color: variables.$light-colour;
+    position: absolute;
+    border-radius: 3px;
+    width: 6px;
+    height: 0px;
+
+    transform: translate(calc(-3px - 11px), -50%);
+    opacity: 0;
+    top: 29px;
+
+    transition-duration: 200ms;
+  }
+
+  &:hover::before {
+    height: 24px;
+    opacity: 1;
+  }
+
+  &.selected::before {
+    height: 58px;
+    opacity: 1;
+  }
+
+  margin-bottom: 12px;
+}
