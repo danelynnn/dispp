@@ -1,5 +1,10 @@
 @use "variables.module";
 
+@font-face {
+  font-family: "Whitney";
+  src: url("fonts/whitneymedium.otf") format("opentype");
+}
+
 .app {
   background-color: variables.$background-colour;
   display: flex;
@@ -8,7 +13,13 @@
 }
 
 input[type="text"] {
+  border: none;
+  border-radius: 2px;
   background-color: #202226;
+  outline: none;
+  color: variables.$light-colour;
+  text-shadow: 1px 1px 2px black;
+  padding: 8px;
 }
 
 p,

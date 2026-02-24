@@ -1,0 +1,56 @@
+@use "variables.module";
+
+.pane {
+  width: 18%;
+  background-color: variables.$background-colour-2;
+  color: variables.$grey-colour;
+
+  & > div {
+    padding: 12px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid variables.$dark-colour;
+    }
+  }
+}
+
+.pane-button {
+  display: flex;
+  padding: 14px;
+  gap: 24px;
+  border-radius: 4px;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #34353c;
+  }
+
+  &.selected {
+    background-color: #33343b;
+    color: variables.$white-colour;
+  }
+}
+
+.pane-item {
+  display: flex;
+  padding: 10px;
+  gap: 12px;
+  border-radius: 8px;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #34353c;
+  }
+
+  &.selected {
+    background-color: #33343b;
+    color: variables.$white-colour;
+  }
+
+  .pane-avatar {
+    width: 32px;
+    border-radius: 50%;
+  }
+}
