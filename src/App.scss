@@ -2,7 +2,27 @@
 
 @font-face {
   font-family: "Whitney";
-  src: url("fonts/whitneymedium.otf") format("opentype");
+  src: url("fonts/whitneymedium.otf") format(opentype);
+}
+
+@font-face {
+  font-family: "Whitney";
+  src: url("fonts/whitneybold.otf") format(opentype);
+  font-weight: bold;
+}
+
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, p, blockquote) {
+  display: flow-root;
+}
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, p, blockquote)::before {
+  content: "";
+  display: table;
+  margin-bottom: calc(-0.5lh + 0.35em);
+}
+:is([class*="u-text-style-"], h1, h2, h3, h4, h5, h6, p, blockquote)::after {
+  content: "";
+  display: table;
+  margin-bottom: calc(-0.5lh + 0.39em);
 }
 
 .app {
@@ -10,6 +30,7 @@
   display: flex;
   height: 100%;
   font-family: "Whitney", "Courier New", Courier, monospace;
+  color: variables.$grey-colour;
 }
 
 input[type="text"] {
@@ -18,7 +39,6 @@ input[type="text"] {
   background-color: #202226;
   outline: none;
   color: variables.$light-colour;
-  text-shadow: 1px 1px 2px black;
   padding: 8px;
 }
 

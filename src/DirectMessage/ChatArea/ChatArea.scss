@@ -1,1 +1,8 @@
 @use "variables.module";
+
+.chat {
+  overflow-y: scroll;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  padding: 16px 0px 16px 0px;
+}

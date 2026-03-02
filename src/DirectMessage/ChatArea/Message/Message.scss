@@ -1,0 +1,39 @@
+@use "variables.module";
+
+.message {
+  display: flex;
+  padding: 8px 24px 8px 24px;
+  gap: 16px;
+  color: variables.$light-colour;
+  align-items: center;
+
+  &:hover {
+    background-color: variables.$background-colour-2;
+  }
+}
+
+.message-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.chat-avatar {
+  border-radius: 50%;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.timestamp {
+  color: variables.$grey-colour;
+  font-size: small;
+}
