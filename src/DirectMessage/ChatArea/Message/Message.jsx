@@ -23,18 +23,18 @@ function Message({ message, leader = false }) {
   return (
     <div className="message">
       {leader ? (
-        <div style={{ width: 50 }}>
+        <div className="avatar-container">
           <img
             className="chat-avatar"
             src={message.author.avatarUrl}
-            height={45}
+            height={40}
           />
         </div>
       ) : (
         <div>
           <p
             class="timestamp"
-            style={{ width: 50, overflowX: "hidden", whiteSpace: "nowrap" }}
+            style={{ width: 42, overflowX: "hidden", whiteSpace: "nowrap" }}
           >
             {/* {format(message.timestamp, true)} */}
           </p>
@@ -42,7 +42,7 @@ function Message({ message, leader = false }) {
       )}
       <div className="message-body">
         {leader && (
-          <div className="header">
+          <div className="message-header">
             <p class="author">{message.author.nickname}</p>
             <p class="timestamp">{format(message.timestamp)}</p>
           </div>

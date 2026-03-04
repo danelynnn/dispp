@@ -1,8 +1,35 @@
 @use "variables.module";
 
 .chat {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  border-bottom: 1px solid variables.$dark-colour;
+}
+
+.chat-body {
   overflow-y: scroll;
   flex-grow: 1;
-  justify-content: space-evenly;
   padding: 16px 0px 16px 0px;
+}
+
+.chat-panel {
+  padding: 16px;
+}
+
+.title {
+  color: variables.$white-colour;
+  font-weight: bold;
+}
+
+.search-bar {
+  padding: 4px;
 }

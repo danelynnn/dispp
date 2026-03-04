@@ -2,9 +2,9 @@
 
 .message {
   display: flex;
-  padding: 8px 24px 8px 24px;
-  gap: 16px;
-  color: variables.$light-colour;
+  padding: 7px 24px 7px 24px;
+  gap: 12px;
+  color: variables.$grey-colour;
   align-items: center;
 
   &:hover {
@@ -12,15 +12,23 @@
   }
 }
 
+.avatar-container {
+  width: 42px;
+  height: 1px;
+  display: flex;
+  align-items: center;
+}
+
 .message-body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 16px;
+  gap: 14px;
 }
 
-.header {
+.message-header {
   display: flex;
+  margin-top: 8px;
   gap: 8px;
   align-items: flex-end;
 }
@@ -30,6 +38,7 @@
 }
 
 .author {
+  color: variables.$light-colour;
   font-weight: bold;
 }
 
