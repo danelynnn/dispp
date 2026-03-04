@@ -1,4 +1,5 @@
 import "./AppBarTab.scss";
+
 import classNames from "classnames";
 
 function AppBarTab({ selected, onClick, children }) {

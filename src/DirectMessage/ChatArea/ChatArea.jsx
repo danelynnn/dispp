@@ -1,15 +1,16 @@
-import { Outlet, useParams } from "react-router";
 import "./ChatArea.scss";
+
 import { useState } from "react";
+import { Outlet, useParams } from "react-router";
 
-import jsonData from "ignore/messages.json";
 import Message from "./Message/Message";
-
+import ChatBox from "./ChatBox/ChatBox";
 import { ReactComponent as Arobase } from "img/at.svg";
 import { ReactComponent as Offline } from "img/offline.svg";
 import { ReactComponent as Online } from "img/online.svg";
 import { ReactComponent as Away } from "img/away.svg";
-import ChatBox from "./ChatBox/ChatBox";
+
+import jsonData from "ignore/messages.json";
 
 function Divider({ children }) {
   return (

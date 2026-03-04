@@ -1,5 +1,7 @@
-import { Outlet } from "react-router";
 import "./App.scss";
+
+import { Outlet } from "react-router";
+
 import AppBar from "./AppBar/AppBar";
 
 function App() {

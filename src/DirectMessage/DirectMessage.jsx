@@ -1,5 +1,7 @@
-import { Outlet } from "react-router";
 import "./DirectMessage.scss";
+
+import { Outlet } from "react-router";
+
 import FriendsPane from "./FriendsPane/FriendsPane";
 
 function DirectMessage() {

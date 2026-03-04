@@ -1,10 +1,12 @@
 import "./AppBar.scss";
 import variables from "_variables.module.scss";
-import { ReactComponent as Logo } from "img/logo.svg";
+
 import { useState } from "react";
 import classNames from "classnames";
-import AppBarTab from "./AppBarTab/AppBarTab";
 import { useMatch, useNavigate, useResolvedPath } from "react-router";
+
+import AppBarTab from "./AppBarTab/AppBarTab";
+import { ReactComponent as Logo } from "img/logo.svg";
 
 function AppBar() {
   const navigate = useNavigate();

@@ -1,11 +1,12 @@
 import "./FriendsPane.scss";
-import { ReactComponent as Wave } from "img/wave.svg";
-import { ReactComponent as Plus } from "img/plus.svg";
+
 import { useState } from "react";
 import { useMatch, useNavigate, useResolvedPath } from "react-router";
 import classNames from "classnames";
 
 import unreal from "img/ignore/unreal.webp";
+import { ReactComponent as Wave } from "img/wave.svg";
+import { ReactComponent as Plus } from "img/plus.svg";
 
 function FriendsPane() {
   const navigate = useNavigate();
