@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 # misc ignore
 **/ignore
+*.pem
