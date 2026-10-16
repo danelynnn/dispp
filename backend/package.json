@@ -1,0 +1,8 @@
+{
+    "type": "module",
+    "dependencies": {
+        "@nodable/compact-builder": "^2.0.0",
+        "@nodable/flexible-xml-parser": "^1.11.3",
+        "readline-sync": "^1.4.10"
+    }
+}

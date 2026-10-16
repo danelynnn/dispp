@@ -1,7 +1,0 @@
-{
-    "type": "module",
-    "dependencies": {
-        "readline-sync": "^1.4.10",
-        "xmlbuilder2": "^4.0.3"
-    }
-}
