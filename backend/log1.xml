@@ -1,0 +1,238 @@
+<?xml version='1.0'?>
+<stream:stream id='ee6d1fd3-655c-4409-b56e-4425113bf58b' version='1.0'
+    xmlns:stream='http://etherx.jabber.org/streams' xmlns='jabber:client' to='dispp_test@worlio.com'
+    xml:lang='en' from='worlio.com'>
+<stream:features>
+    <mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+        <mechanism>PLAIN</mechanism>
+    </mechanisms>
+    <auth xmlns='http://jabber.org/features/iq-auth' />
+    <starttls xmlns='urn:ietf:params:xml:ns:xmpp-tls' />
+    <register xmlns='http://jabber.org/features/iq-register' />
+    <limits xmlns='urn:xmpp:stream-limits:0'>
+        <max-bytes>10000</max-bytes>
+        <idle-seconds>840</idle-seconds>
+    </limits>
+</stream:features>
+
+
+<proceed xmlns='urn:ietf:params:xml:ns:xmpp-tls' />
+<?xml version='1.0'?>
+<stream:stream id='d82cbbc8-9c90-43c7-aeba-4b9db526f6b5' version='1.0'
+    xmlns:stream='http://etherx.jabber.org/streams' xmlns='jabber:client' to='dispp_test@worlio.com'
+    xml:lang='en' from='worlio.com'>
+<stream:features>
+    <mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
+        <mechanism>PLAIN</mechanism>
+    </mechanisms>
+    <sasl-channel-binding xmlns='urn:xmpp:sasl-cb:0'>
+        <channel-binding type='tls-exporter' />
+    </sasl-channel-binding>
+    <auth xmlns='http://jabber.org/features/iq-auth' />
+    <register xmlns='http://jabber.org/features/iq-register' />
+    <limits xmlns='urn:xmpp:stream-limits:0'>
+        <max-bytes>10000</max-bytes>
+        <idle-seconds>840</idle-seconds>
+    </limits>
+</stream:features>
+
+
+<success xmlns='urn:ietf:params:xml:ns:xmpp-sasl' />
+<?xml version='1.0'?>
+<stream:stream id='98c34844-0e0a-4e92-a0f4-93258f6bee99' version='1.0'
+    xmlns:stream='http://etherx.jabber.org/streams' xmlns='jabber:client' to='dispp_test@worlio.com'
+    xml:lang='en' from='worlio.com'>
+<stream:features>
+    <sm xmlns='urn:xmpp:sm:2' />
+    <sm xmlns='urn:xmpp:sm:3' />
+    <sub xmlns='urn:xmpp:features:pre-approval' />
+    <bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'>
+        <required />
+    </bind>
+    <session xmlns='urn:ietf:params:xml:ns:xmpp-session'>
+        <optional />
+    </session>
+    <c xmlns='http://jabber.org/protocol/caps' ver='Ou1/s2E2Px8MZU4KVeuq9G7UJbQ='
+        node='http://prosody.im' hash='sha-1' />
+    <ver xmlns='urn:xmpp:features:rosterver' />
+    <csi xmlns='urn:xmpp:csi:0' />
+    <limits xmlns='urn:xmpp:stream-limits:0'>
+        <max-bytes>262144</max-bytes>
+        <idle-seconds>840</idle-seconds>
+    </limits>
+</stream:features>
+
+
+<iq id='69' type='result'>
+    <bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'>
+        <jid>dispp_test@worlio.com/SDr3RlLdWxu4</jid>
+    </bind>
+</iq>
+
+
+<iq id='70' to='dispp_test@worlio.com/SDr3RlLdWxu4' type='result'>
+    <query xmlns='jabber:iq:roster' ver='5'>
+        <item name='danelyn' jid='danelyn@worlio.com' subscription='both' />
+    </query>
+</iq>
+
+
+<presence from='dispp_test@worlio.com/SDr3RlLdWxu4' xml:lang='en'>
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+</presence>
+<presence id='96645d03-fd4a-4420-9ec0-725cba92f16f' to='dispp_test@worlio.com/SDr3RlLdWxu4'
+    from='danelyn@worlio.com/gajim.8V6BO8HA' xml:lang='en-GB'>
+    <c hash='sha-1' ver='M/NGZLjdQ5R891y6Fmii+0fyaCQ=' node='https://gajim.org'
+        xmlns='http://jabber.org/protocol/caps' />
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+    <delay xmlns='urn:xmpp:delay' stamp='2026-10-16T03:07:08Z' from='worlio.com' />
+</presence>
+<presence id='B10DC228-CF4B-4C85-986E-0D069B858E01' to='dispp_test@worlio.com/SDr3RlLdWxu4'
+    from='danelyn@worlio.com/Monal-iOS.c73dabb0' xml:lang='en'>
+    <c hash='sha-1' ver='Wj+7CrzZVcRJMbEBQqwOjEFSDSc=' node='https://monal-im.org/'
+        xmlns='http://jabber.org/protocol/caps' />
+    <idle xmlns='urn:xmpp:idle:1' since='2026-10-17T01:30:10Z' />
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+    <delay xmlns='urn:xmpp:delay' stamp='2026-10-17T01:38:15Z' from='worlio.com' />
+</presence>
+<presence id='6ea507e8-f8d0-47de-9f46-43f65b1fe82d' to='dispp_test@worlio.com/SDr3RlLdWxu4'
+    from='dispp_test@worlio.com/gajim.ZBJ0QDLR' xml:lang='en-GB'>
+    <c hash='sha-1' ver='M/NGZLjdQ5R891y6Fmii+0fyaCQ=' node='https://gajim.org'
+        xmlns='http://jabber.org/protocol/caps' />
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+    <delay xmlns='urn:xmpp:delay' stamp='2026-10-16T17:35:18Z' from='worlio.com' />
+</presence>
+
+
+<message id='2ec324c5-7eaf-4b33-a6d3-faf53659707d' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='2ec324c5-7eaf-4b33-a6d3-faf53659707d' xmlns='urn:xmpp:sid:0' />
+    <composing xmlns='http://jabber.org/protocol/chatstates' />
+    <no-store xmlns='urn:xmpp:hints' />
+</message>
+
+
+<message id='ee4e68cd-0fcf-41ef-927e-5bb0b2f4ba45' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <body>hi</body>
+    <origin-id id='ee4e68cd-0fcf-41ef-927e-5bb0b2f4ba45' xmlns='urn:xmpp:sid:0' />
+    <request xmlns='urn:xmpp:receipts' />
+    <active xmlns='http://jabber.org/protocol/chatstates' />
+    <markable xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a14785-43c0-754a-9861-34a05b0b6e1c'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<message id='a56c5f20-3bfc-4458-81ff-b2bbc190e6a9' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='a56c5f20-3bfc-4458-81ff-b2bbc190e6a9' xmlns='urn:xmpp:sid:0' />
+    <displayed id='31cf2eee-8ce1-4ad4-a8b6-50b3b9e1c9f9' xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a14786-e61b-714d-af75-604678012f7c'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<message id='e42f5ef6-d18d-4bef-acbf-0b3b5e762f53' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='e42f5ef6-d18d-4bef-acbf-0b3b5e762f53' xmlns='urn:xmpp:sid:0' />
+    <composing xmlns='http://jabber.org/protocol/chatstates' />
+    <no-store xmlns='urn:xmpp:hints' />
+</message>
+
+
+<message id='a0ffec4f-5b71-464a-86e1-9c0735341fa0' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <body>no chat</body>
+    <origin-id id='a0ffec4f-5b71-464a-86e1-9c0735341fa0' xmlns='urn:xmpp:sid:0' />
+    <request xmlns='urn:xmpp:receipts' />
+    <active xmlns='http://jabber.org/protocol/chatstates' />
+    <markable xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a14788-25b1-74ed-80c0-a2aa03684ece'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<message id='693eb565-ceed-466e-a3e8-8510d7c3a87c' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='693eb565-ceed-466e-a3e8-8510d7c3a87c' xmlns='urn:xmpp:sid:0' />
+    <displayed id='3efc9e86-852a-443c-bea2-a215cf99d1e6' xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a14789-45bf-7449-b4e4-2e59666e7a74'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<message id='b2dc3491-6bd7-49b4-af12-358b48ac921b' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='b2dc3491-6bd7-49b4-af12-358b48ac921b' xmlns='urn:xmpp:sid:0' />
+    <displayed id='a6c18c8e-0a55-425e-ab5b-34388a2e874a' xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a1478b-33eb-7d03-901d-bae1e3004da7'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<message id='427d0d67-738b-40f4-a49b-f06efb1db8a5' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <origin-id id='427d0d67-738b-40f4-a49b-f06efb1db8a5' xmlns='urn:xmpp:sid:0' />
+    <displayed id='d660cda7-5ffa-4450-a063-a2f0cf368261' xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a1478c-2979-76ae-a8f2-c5b878973624'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<presence id='AFB95F77-9671-4D67-8414-15217A9D1C3F' to='dispp_test@worlio.com'
+    from='danelyn@worlio.com/Monal-iOS.c73dabb0' xml:lang='en'>
+    <c hash='sha-1' ver='Wj+7CrzZVcRJMbEBQqwOjEFSDSc=' node='https://monal-im.org/'
+        xmlns='http://jabber.org/protocol/caps' />
+    <idle xmlns='urn:xmpp:idle:1' since='2026-10-17T01:30:10Z' />
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+</presence>
+
+
+<message id='73f7e6ec-6be4-4043-adb2-f1bdb277dd61' xml:lang='en-GB' type='chat'
+    to='dispp_test@worlio.com' from='danelyn@worlio.com/gajim.8V6BO8HA'>
+    <body>
+        https://i.worlio.com:5281/file_share/01a14790-965b-7c68-a696-c8e977484b19/fc04755d-1b94-49b5-8a68-be0821160563.png</body>
+    <origin-id id='73f7e6ec-6be4-4043-adb2-f1bdb277dd61' xmlns='urn:xmpp:sid:0' />
+    <x xmlns='jabber:x:oob'>
+        <url>
+            https://i.worlio.com:5281/file_share/01a14790-965b-7c68-a696-c8e977484b19/fc04755d-1b94-49b5-8a68-be0821160563.png</url>
+    </x>
+    <request xmlns='urn:xmpp:receipts' />
+    <markable xmlns='urn:xmpp:chat-markers:0' />
+    <stanza-id xmlns='urn:xmpp:sid:0' id='01a14790-9bc7-79fc-adb3-77cc0a2970e3'
+        by='dispp_test@worlio.com' />
+</message>
+
+
+<presence type='unavailable' to='dispp_test@worlio.com/SDr3RlLdWxu4'
+    from='dispp_test@worlio.com/gajim.ZBJ0QDLR'>
+    <status>Disconnected: Hibernating too long</status>
+</presence>
+
+
+<presence id='36A1C03B-567C-4FA7-918A-CAC8C9165DD7' to='dispp_test@worlio.com'
+    from='danelyn@worlio.com/Monal-iOS.c73dabb0' xml:lang='en'>
+    <c hash='sha-1' ver='Wj+7CrzZVcRJMbEBQqwOjEFSDSc=' node='https://monal-im.org/'
+        xmlns='http://jabber.org/protocol/caps' />
+    <idle xmlns='urn:xmpp:idle:1' since='2026-10-17T01:30:10Z' />
+    <x xmlns='vcard-temp:x:update'>
+        <photo />
+    </x>
+</presence>
+
+
+ 
+
+
+ 
