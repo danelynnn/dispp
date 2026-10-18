@@ -7,13 +7,23 @@ import XMLParser from "@nodable/flexible-xml-parser";
 import { promisify } from "node:util";
 const parser = new XMLParser({ autoClose: "html", skip: { attributes: false } });
 
+// TODO:
+// identify that a message is incomplete
+// if it is, don't delete callback for it (maybe include a buffer in callbacks)
+// put id into a "pending" variable somewhere, because all next incoming messages should belong to it
+
 class XMPPStream {
-  constructor(domain, username, out = "out.xml") {
+  constructor(domain, out = "out.xml") {
     this.domain = domain;
-    this.username = username;
     this.onReceive = () => {};
 
+    this.iq_callbacks = {};
+
     this.out = fs.createWriteStream(out);
+  }
+
+  startListening() {
+    this.socket.on("data", (data) => this.#receiveData(data.toString()));
   }
 
   #connect(callback) {
@@ -36,8 +46,10 @@ class XMPPStream {
   }
   connect = promisify(this.#connect);
 
-  #authenticate(header, password, callback) {
+  #authenticate(header, username, password, callback) {
+    this.username = username;
     console.log("step 1.5: authenticating with SASL");
+
     if ("stream:stream" in header && "stream:features" in header["stream:stream"]) {
       const features = header["stream:stream"]["stream:features"];
 
@@ -73,10 +85,64 @@ class XMPPStream {
         <query xmlns='jabber:iq:roster'/>
       </iq>
     `);
-    this.socket.once("data", (data) => this.#receiveRoster(data.toString(), callback));
+    this.iq_callbacks[70] = callback;
   }
   retrieveRoster = promisify(this.#retrieveRoster);
+  #receiveRoster(data) {
+    if ("error" in data["query"]) {
+      console.log("no roster found :c");
+    } else {
+      if ("item" in data["query"]) {
+        const roster = data["query"]["item"];
+        if (Array.isArray(roster)) {
+          this.roster = roster;
+        } else {
+          this.roster = [roster];
+        }
+      } else {
+        this.roster = [];
+      }
 
+      return this.roster;
+    }
+  }
+
+  #retrieveProfile(jid, callback) {
+    const id = `profile_${jid}`;
+
+    this.socket.write(`
+      <iq from='${this.resourcepart}'
+          id='${id}'
+          type='get'
+          to='${jid}'>
+        <vCard xmlns="vcard-temp"/>
+      </iq>
+    `);
+    this.iq_callbacks[id] = callback;
+  }
+  retrieveProfile = promisify(this.#retrieveProfile);
+  #receiveProfile(data) {
+    return data;
+  }
+
+  #broadcastInitialPresence(callback) {
+    console.log("step 2.2: broadcasting initial presence");
+    this.socket.write(`<presence />`);
+    this.socket.once("data", (data) => this.#postInitialPresence(data.toString(), callback));
+  }
+  broadcastInitialPresence = promisify(this.#broadcastInitialPresence);
+  #postInitialPresence(data, callback) {
+    this.out.write(data);
+    this.out.write("\n\n\n");
+
+    const response = parser.parse(data);
+    callback(null, response["presence"]);
+  }
+
+  // archival messages cannot be handled through catch-all because they're hardly distinguishable
+  // from real messages, but must be handled extremely differently. hence, we temporarily disable
+  // catch-all and handle archival feed "once" (as many packets of data, but only one time)
+  // then, re-enable catch-all
   #collectStanzaPages(callback) {
     let stanza = "";
 
@@ -268,49 +334,7 @@ class XMPPStream {
     this.resourcepart = response["iq"]["bind"]["jid"];
 
     callback(null, this.resourcepart);
-  }
-
-  #receiveRoster(data, callback) {
-    this.out.write(data);
-    this.out.write("\n\n\n");
-
-    const response = parser.parse(data);
-
-    if ("error" in response["iq"]["query"]) {
-      console.log("no roster found :c");
-    } else {
-      if ("item" in response["iq"]["query"]) {
-        const roster = response["iq"]["query"]["item"];
-        if (Array.isArray(roster)) {
-          this.roster = roster;
-        } else {
-          this.roster = [roster];
-        }
-      } else {
-        this.roster = [];
-      }
-
-      console.log("step 2.2: broadcasting initial presence");
-      this.socket.write(`<presence />`);
-      this.socket.once("data", (data) => this.#postInitialPresence(data.toString(), callback));
-    }
-  }
-
-  #postInitialPresence(data, callback) {
-    this.out.write(data);
-    this.out.write("\n\n\n");
-
-    const response = parser.parse(data);
-    this.socket.on("data", (data) => this.#receiveData(data.toString()));
-    callback(null, response["presence"]);
-  }
-
-  #receiveArchive(data, callback) {
-    this.out.write(data);
-    this.out.write("\n\n\n");
-
-    const response = parser.parse(data);
-    callback(null, response);
+    this.startListening();
   }
 
   // catch-all for any server updates
@@ -323,7 +347,26 @@ class XMPPStream {
     this.out.write("\n\n\n");
 
     const response = parser.parse(data);
-    this.onReceive(response);
+
+    if ("iq" in response) {
+      const obj = response.iq;
+      let result;
+
+      if (obj["@_id"] == 70) {
+        // roster result
+        result = this.#receiveRoster(obj);
+      } else if (obj["@_id"].includes("profile")) {
+        // profile result
+        result = this.#receiveProfile(obj);
+      }
+
+      this.iq_callbacks[obj["@_id"]](null, result);
+      delete this.iq_callbacks[obj["@_id"]];
+    } else if ("presence" in response) {
+      console.log("presence maybe idk");
+    } else {
+      this.onReceive(response);
+    }
   }
 }
 

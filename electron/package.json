@@ -1,0 +1,15 @@
+{
+  "name": "electron",
+  "main": "main.js",
+  "dependencies": {
+    "@nodable/compact-builder": "^2.0.0",
+    "@nodable/flexible-xml-parser": "^1.11.3"
+  },
+  "devDependencies": {
+    "electron": "^44.9.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

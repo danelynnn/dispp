@@ -15,9 +15,12 @@ function ChatBox({ username, submit }) {
         onKeyDown={(e) => {
           // Enter was pressed without shift key
           if (e.key == "Enter" && !e.shiftKey) {
-            // block newline
             e.preventDefault();
-            submit(e.target.value);
+            if (e.target.value) {
+              // block newline
+              submit(e.target.value);
+              e.target.value = "";
+            }
           }
         }}
       />

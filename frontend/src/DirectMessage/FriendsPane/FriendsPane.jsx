@@ -19,19 +19,12 @@ function FriendsPane() {
     }
   }
 
-  const [friends, setFriends] = useState([
-    { username: "unreal", address: "xmpp@address.org" },
-  ]);
+  const [friends, setFriends] = useState([{ username: "unreal", address: "xmpp@address.org" }]);
 
   return (
     <div className="pane">
-      {console.log(route)}
       <div style={{ display: "flex" }}>
-        <input
-          type="text"
-          placeholder="Find or start a conversation"
-          style={{ flexGrow: 1 }}
-        />
+        <input type="text" placeholder="Find or start a conversation" style={{ flexGrow: 1 }} />
       </div>
       <div>
         <div
